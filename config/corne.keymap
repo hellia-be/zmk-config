@@ -12,9 +12,10 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <2 3>;
+            then-layer = <1>;
         };
     };
 
@@ -26,7 +27,16 @@
   &kp Q  &kp W  &kp F             &kp P        &kp B                &kp J                     &kp L        &kp U                &kp Y       &kp SQT
   &kp A  &kp R  &kp S             &kp T        &kp G                &kp M                     &kp N        &kp E                &kp I       &kp O
   &kp Z  &kp X  &kp C             &kp D        &kp V                &kp K                     &kp H        &kp COMMA            &kp PERIOD  &kp SLASH
-                &mt LCTRL DELETE  &lt 2 ENTER  &mt LEFT_META TAB    &mt LEFT_SHIFT BACKSPACE  &lt 1 SPACE  &mt LEFT_ALT ESCAPE
+                &mt LCTRL DELETE  &lt 3 ENTER  &mt LEFT_META TAB    &mt LEFT_SHIFT BACKSPACE  &lt 2 SPACE  &mt LEFT_ALT ESCAPE
+            >;
+        };
+
+        del_layer {
+            bindings = <
+  &trans  &trans  &trans  &trans      &trans    &trans  &trans         &trans  &trans  &trans
+  &trans  &trans  &trans  &kp DELETE  &trans    &trans  &kp BACKSPACE  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans      &trans    &trans  &trans         &trans  &trans  &trans
+                  &trans  &trans      &trans    &trans  &trans         &trans
             >;
         };
 
@@ -45,15 +55,6 @@
   &kp N0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3     &kp NUMBER_4    &kp N5  &kp NUMBER_6  &kp N7     &kp N8      &kp N9
   &none   &kp C_VOL_DN  &kp K_MUTE    &kp C_VOLUME_UP  &none           &none   &kp MINUS     &kp EQUAL  &none       &none
                         &trans        &trans           &trans          &trans  &trans        &trans
-            >;
-        };
-
-        del_layer {
-            bindings = <
-  &trans  &trans  &trans  &trans      &trans    &trans  &trans         &trans  &trans  &trans
-  &trans  &trans  &trans  &kp DELETE  &trans    &trans  &kp BACKSPACE  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans      &trans    &trans  &trans         &trans  &trans  &trans
-                  &trans  &trans      &trans    &trans  &trans         &trans
             >;
         };
     };

@@ -21,15 +21,59 @@
         };
     };
 
+    behaviors {
+        delete: delete {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DELETE";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp DELETE>;
+        };
+
+        enter: enter {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ENTER";
+            #binding-cells = <0>;
+            bindings = <&kp ENTER>, <&mo 2>;
+        };
+
+        tab: tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAB";
+            #binding-cells = <0>;
+            bindings = <&kp LMETA>, <&kp TAB>;
+        };
+
+        backspace: backspace {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BACKSPACE";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT>, <&kp BACKSPACE>;
+        };
+
+        space: space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SPACE";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&mo 1>;
+        };
+
+        escape: escape {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESCAPE";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&kp ESC>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         base_layer {
             bindings = <
-  &kp Q  &kp W  &kp F             &mt PRINTSCREEN P  &kp B                &kp J                     &kp L        &kp U                &mt INS Y   &mt HOME SQT
-  &kp A  &kp R  &kp S             &kp T              &kp G                &kp M                     &kp N        &kp E                &kp I       &kp O
-  &kp Z  &kp X  &kp C             &kp D              &kp V                &kp K                     &kp H        &kp COMMA            &kp PERIOD  &mt END SLASH
-                &mt LCTRL DELETE  &lt 2 ENTER        &mt LEFT_META TAB    &mt LEFT_SHIFT BACKSPACE  &lt 1 SPACE  &mt LEFT_ALT ESCAPE
+  &kp Q  &kp W  &kp F    &mt PRINTSCREEN P  &kp B    &kp J       &kp L   &kp U      &mt INS Y   &mt HOME SQT
+  &kp A  &kp R  &kp S    &kp T              &kp G    &kp M       &kp N   &kp E      &kp I       &kp O
+  &kp Z  &kp X  &kp C    &kp D              &kp V    &kp K       &kp H   &kp COMMA  &kp PERIOD  &mt END SLASH
+                &delete  &enter             &tab     &backspace  &space  &escape
             >;
         };
 

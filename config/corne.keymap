@@ -39,5 +39,14 @@
                         &trans        &trans           &trans          &trans  &trans        &trans
             >;
         };
+
+        del_layer {
+            bindings = <
+  &trans  &trans  &trans  &trans      &trans    &trans  &trans         &trans  &trans  &trans
+  &trans  &trans  &trans  &kp DELETE  &trans    &trans  &kp BACKSPACE  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans      &trans    &trans  &trans         &trans  &trans  &trans
+                  &trans  &trans      &trans    &trans  &trans         &trans
+            >;
+        };
     };
 };

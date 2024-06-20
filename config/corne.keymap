@@ -14,12 +14,6 @@
         compatible = "zmk,keymap";
 
         base_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
             bindings = <
   &kp Q  &kp W  &kp F             &kp P        &kp B                &kp J                     &kp L        &kp U                &kp Y       &kp SQT
   &kp A  &kp R  &kp S             &kp T        &kp G                &kp M                     &kp N        &kp E                &kp I       &kp O
@@ -29,12 +23,6 @@
         };
 
         sym_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
             bindings = <
   &none  &kp GRAVE  &kp UP_ARROW      &kp BACKSLASH  &none                &none                     &none             &none                &none          &none
   &none  &kp LEFT   &kp DOWN_ARROW    &kp RIGHT      &none                &none                     &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp SEMICOLON  &none
@@ -44,12 +32,6 @@
         };
 
         num_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
             bindings = <
   &kp F1  &kp F2        &kp F3         &kp F4           &kp F5               &kp F6                    &kp F7        &kp F8               &mt F11 F9  &mt F12 F10
   &kp N0  &kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3     &kp NUMBER_4         &kp N5                    &kp NUMBER_6  &kp N7               &kp N8      &kp N9

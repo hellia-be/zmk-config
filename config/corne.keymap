@@ -22,8 +22,6 @@
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
-
     behaviors {
         ht: hold_tap {
             label = "hold_tap";

@@ -9,10 +9,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// Home row mods macro
-#define HRML(k2,k3,k4) &ht LALT k2 &ht LGUI k3 &ht LCTRL k4
-#define HRMR(k1,k2,k3) &ht RCTRL k1 &ht RGUI k2 &ht RALT k3
-
 #define WIN 0
 #define RIG 1
 #define LEF 2
@@ -23,15 +19,46 @@
     chosen { zmk,matrix_transform = &five_column_transform; };
 
     behaviors {
-        ht: hold_tap {
-            label = "hold_tap";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
+        ltab: left_tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DELETE";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&mo LEF>;
+        };
+
+        rtab: right_tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DELETE";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&mo RIG>;
+        };
+
+        enter: enter {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ENTER";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp ENTER>;
+        };
+
+        space: space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SPACE";
+            #binding-cells = <0>;
+            bindings = <&kp LMETA>, <&kp SPACE>;
+        };
+
+        backspace: backspace {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BACKSPACE";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT>, <&kp BACKSPACE>;
+        };
+
+        escape: escape {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESCAPE";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&kp ESC>;
         };
     };
 
@@ -49,16 +76,16 @@
         base_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │          │
-            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &none
+        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  DELETE        │
+            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
-            &kp A     HRML(R,         S,         T)     &kp G          &kp M      HRMR(N,        E,           I)   &kp O
+            &kp A      &kp R      &kp S      &kp T      &kp G          &kp M      &kp N      &kp E      &kp I      &kp O
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │          │
             &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &none
         //╰──────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┴──────────╯
-                                &lt LEF TAB  &kp BSPC  &kp LSHIFT    &kp SPACE  &kp ENTER   &lt RIG TAB
+                                  &ltab      &enter     &space        &backspace  &escape    &rtab
         //                      ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯
             >;
         };
@@ -100,8 +127,8 @@
         tri_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  ESC     │  PrintSc │  UP      │  INSERT  │ NEXTSONG │   │          │INC BRIGHT│DEC BRIGHT│          │          │
-            &kp ESC    &kp PSCRN  &kp UARW   &kp INS    &kp C_NEXT     &none    &kp C_BRI_UP &kp C_BRI_DEC &none      &none
+        //│          │  PrintSc │  UP      │  INSERT  │ NEXTSONG │   │          │INC BRIGHT│DEC BRIGHT│          │          │
+            &none      &kp PSCRN  &kp UARW   &kp INS    &kp C_NEXT     &none    &kp C_BRI_UP &kp C_BRI_DEC &none      &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │  LEFT    │  DOWN    │  RIGHT   │PAUSEMUSIC|   |          │  HOME    │  PAGE DN │  PAGE UP │  END     │
             &none      &kp LARW   &kp DARW   &kp RARW   &kp C_PP       &none      &kp HOME   &kp PG_DN  &kp PG_UP  &kp END 

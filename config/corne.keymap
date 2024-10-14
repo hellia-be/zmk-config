@@ -10,8 +10,10 @@
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri-layer {
             if-layers = <RIG LEF>;
             then-layer = <TRI>;
@@ -41,19 +43,19 @@
 
         left_layer {
             bindings = <
-  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp GRAVE  &kp TILDE
-  &kp DQT   &kp LARW  &kp DARW  &kp RARW  &none        &kp FSLH   &kp MINUS  &kp EQUAL  &kp COLON  &kp SEMI
-  &kp SQT   &kp RBKT  &kp RBRC  &kp RPAR  &none        &kp BSLH   &kp UNDER  &kp PLUS   &kp PIPE   &kp QMARK
-                      &trans    &trans    &trans       &trans     &trans     &trans
+  &kp EXCL  &kp AT            &kp HASH        &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp GRAVE  &kp TILDE
+  &kp DQT   &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LPAR  &none        &kp FSLH   &kp MINUS  &kp EQUAL  &kp COLON  &kp SEMI
+  &kp SQT   &kp RBKT          &kp RBRC        &kp RPAR  &none        &kp BSLH   &kp UNDER  &kp PLUS   &kp PIPE   &kp QMARK
+                              &trans          &trans    &trans       &trans     &trans     &trans
             >;
         };
 
         tri_layer {
             bindings = <
-  &none  &kp PSCRN     &kp UARW    &kp INS       &kp C_NEXT    &none         &kp C_BRI_UP  &kp C_BRI_DEC  &none       &none
-  &none  &kp LARW      &kp DARW    &kp RARW      &kp C_PP      &none         &kp HOME      &kp PG_DN      &kp PG_UP   &kp END
-  &none  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp C_PREV    &out OUT_TOG  &bt BT_NXT    &bt BT_CLR     &bt BT_PRV  &bt BT_CLR_ALL
-                       &trans      &trans        &trans        &trans        &trans        &trans
+  &none  &kp PSCRN       &kp UP_ARROW    &kp INS          &kp C_NEXT    &none         &kp C_BRI_UP  &kp C_BRI_DEC  &none       &none
+  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp C_PP      &none         &kp HOME      &kp PG_DN      &kp PG_UP   &kp END
+  &none  &kp C_VOL_DN    &kp C_MUTE      &kp C_VOL_UP     &kp C_PREV    &out OUT_TOG  &bt BT_NXT    &bt BT_CLR     &bt BT_PRV  &bt BT_CLR_ALL
+                         &trans          &trans           &trans        &trans        &trans        &trans
             >;
         };
     };

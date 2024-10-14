@@ -10,54 +10,8 @@
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
-
-    behaviors {
-        ltab: left_tab {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LELT_TAB";
-            #binding-cells = <0>;
-            bindings = <&kp TAB>, <&mo LEF>;
-        };
-
-        rtab: right_tab {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RIGHT_TAB";
-            #binding-cells = <0>;
-            bindings = <&kp TAB>, <&mo RIG>;
-        };
-
-        enter: enter {
-            compatible = "zmk,behavior-tap-dance";
-            label = "ENTER";
-            #binding-cells = <0>;
-            bindings = <&kp LCTRL>, <&kp ENTER>;
-        };
-
-        space: space {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SPACE";
-            #binding-cells = <0>;
-            bindings = <&kp LMETA>, <&kp SPACE>;
-        };
-
-        backspace: backspace {
-            compatible = "zmk,behavior-tap-dance";
-            label = "BACKSPACE";
-            #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&kp BACKSPACE>;
-        };
-
-        escape: escape {
-            compatible = "zmk,behavior-tap-dance";
-            label = "ESCAPE";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT>, <&kp ESC>;
-        };
-    };
-
     conditional_layers {
         compatible = "zmk,conditional-layers";
-
         tri-layer {
             if-layers = <RIG LEF>;
             then-layer = <TRI>;

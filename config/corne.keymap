@@ -13,49 +13,6 @@
     chosen { zmk,matrix_transform = &five_column_transform; };
 
     behaviors {
-        ltab: left_tab {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LELT_TAB";
-            #binding-cells = <0>;
-            bindings = <&kp TAB>, <&mo LEF>;
-        };
-
-        rtab: right_tab {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RIGHT_TAB";
-            #binding-cells = <0>;
-            bindings = <&kp TAB>, <&mo RIG>;
-        };
-
-        enter: enter {
-            compatible = "zmk,behavior-tap-dance";
-            label = "ENTER";
-            #binding-cells = <0>;
-            bindings = <&kp LCTRL>, <&kp ENTER>;
-        };
-
-        space: space {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SPACE";
-            #binding-cells = <0>;
-            bindings = <&kp LMETA>, <&kp SPACE>;
-        };
-
-        backspace: backspace {
-            compatible = "zmk,behavior-tap-dance";
-            label = "BACKSPACE";
-            #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&kp BACKSPACE>;
-        };
-
-        escape: escape {
-            compatible = "zmk,behavior-tap-dance";
-            label = "ESCAPE";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT>, <&kp ESC>;
-        };
-    };
-
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri-layer {
@@ -70,16 +27,16 @@
         base_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  DELETE  │
-            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp DEL
+        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  BCKSPC  │
+            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp BACKSPACE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
             &kp A      &kp R      &kp S      &kp T      &kp G          &kp M      &kp N      &kp E      &kp I      &kp O
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │          │
-            &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &none
+            &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp esc
         //╰──────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┴──────────╯
-                                  &ltab      &enter     &space        &backspace  &escape    &rtab
+                                  &mo LEF    &kp enter  &kp lmeta      &kp lshift &kp space  &mo RIG
         //                      ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯
             >;
         };

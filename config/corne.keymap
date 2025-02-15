@@ -6,7 +6,7 @@
 #define WIN 0
 #define RIG 1
 #define LEF 2
-#define TRI 3
+#define TRI 3 
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
